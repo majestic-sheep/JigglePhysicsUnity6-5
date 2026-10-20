@@ -94,7 +94,7 @@ public class JiggleTree {
         this.personalColliders = personalColliders.ToArray();
         this.personalColliderTransforms = personalColliderTransforms.ToArray();
 #if UNITY_6000_4_OR_NEWER
-        rootID = bones[0].GetEntityId();
+        rootID = (int)(EntityId.ToULong(bones[0].GetEntityId()) & 0xFFFFFFFFu);
 #else
         rootID = bones[0].GetInstanceID();
 #endif
@@ -128,7 +128,7 @@ public class JiggleTree {
         }
 
 #if UNITY_6000_4_OR_NEWER
-        rootID = bones[0].GetEntityId();
+        rootID = (int)(EntityId.ToULong(bones[0].GetEntityId()) & 0xFFFFFFFFu);
 #else
         rootID = bones[0].GetInstanceID();
 #endif
